@@ -1,0 +1,8 @@
+.foot {
+    height: 10vh;
+    width: 100vw;
+    background: green;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center
+}

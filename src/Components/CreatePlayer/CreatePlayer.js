@@ -1,0 +1,112 @@
+import React, {Component} from 'react';
+import axios from 'axios';
+import './createPlayer.css'
+
+//Components
+import Player from "./../Player/Player";
+
+export default class CreatePlayer extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            playerName: "",
+            playerRating: "",
+            countryImg: "",
+            playerTeam: "",
+            playerImg: "",
+            allPlayers: []
+        }
+    }
+
+    // --------------------Create--------------------
+
+    handlePlayerName = e => {
+        this.setState({playerName: e.target.value});
+    }
+
+    handleRating = e => {
+        this.setState({playerRating: e.target.value});
+    }
+
+    handleCountry = e => {
+        this.setState({countryImg: e.target.value});
+    }
+
+    handleTeam = e => {
+        this.setState({playerTeam: e.target.value});
+    }
+
+    handlePlayerImg = e => {
+        this.setState({playerImg: e.target.value});
+    }
+
+    handleCreatePlayer = e => {
+        const {playerName, playerRating, countryImg, playerTeam, playerImg} = this.state;
+        e.preventDefault();
+        axios.post("/api/ultiteam", {
+            playerName,
+            playerRating,
+            countryImg,
+            playerTeam,
+            playerImg
+        }).then(response => {
+            this.setState({allPlayers: response.data})
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    // --------------------------Read--------------------------
+
+    getAllPlayers = () => {
+        axios.get("/api/ultiteam").then(response => {
+            this.setState({allPlayers: response.data})
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    componentDidMount(){
+        this.getAllPlayers();
+    }
+
+    // ---------------------------Delete-------------------------
+
+    
+    newPlayerArr = arr => {
+        this.setState({allPlayers: arr})
+    }
+    
+    // ----------------------Edit----------------------
+
+    // newPlayerName = str => {
+    //     this.setState({playerName: str})
+    // }
+
+    // newPlayerRating = str => {
+    //     this.setState({playerName: str})
+    // }
+
+    render() {
+        let createdPlayers = this.state.allPlayers.map((element, index) => {
+            return (
+                <Player element={element} key={index} newPlayerArr={this.newPlayerArr} newPlayerName={this.newPlayerName} newPlayerRating={this.newPlayerRating} />
+            )
+        })
+        return(
+            <div>
+                <form className="input-fields">
+                    <input placeholder="Choose a Player Name" onChange={this.handlePlayerName} />
+                    <input placeholder="Rating between 50-99" onChange={this.handleRating} />
+                    <input placeholder="Country url: futhead.com" onChange={this.handleCountry} />
+                    <input placeholder="Team url: futhead.com" onChange={this.handleTeam} />
+                    <input placeholder="Player url: futhead.com" onChange={this.handlePlayerImg} />
+                    <button onClick={this.handleCreatePlayer} >Create Player</button>
+                </form>
+                {createdPlayers}
+            </div>
+        )
+    }
+}

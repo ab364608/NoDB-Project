@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import './reset.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Components
+import CreatePlayer from "./Components/CreatePlayer/CreatePlayer";
+// import ButTeam from "./Components/ButTeam/ButTeam";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      currentPage: ""
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <nav className="player-button">
+          <button onClick={() => this.setState({currentPage: "create"})}>Create Player</button>
+          {/* <button onClick={() => this.setState({currentPage: "BUT"})} >My BUT</button> */}
+        </nav>
+        {/* {this.state.currentPage === "create" ? <CreatePlayer /> : this.state.currentPage === "BUT" ? <ButTeam /> : null} */}
+        {this.state.currentPage === "create" ? <CreatePlayer /> : null}
+        <Footer />
+      </div>
+    )
+  }
 }
-
-export default App;
