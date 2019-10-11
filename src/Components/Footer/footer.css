@@ -1,8 +1,26 @@
-.foot {
-    height: 10vh;
+.center {
     width: 100vw;
-    background: green;
+    position: relative;
+    left: 68vw
+}
+
+.foot {
+    height: 15vh;
+    width: 32vw;
+    background: #F5BA0F;
     display: flex;
-    align-items: flex-start;
-    justify-content: center
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 85vh;
+    font-family: 'Mansalva', cursive;
+}
+
+.bonus {
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.4em;
+    font-weight: 600;
 }

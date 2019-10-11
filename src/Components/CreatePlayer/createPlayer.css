@@ -1,6 +1,49 @@
 .input-fields {
     width: 100vw;
-    height: 30vh;
+    height: 70vh;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 25vh;
+    left: 6vw
+}
+
+.input {
+    width: 13vw;
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.input input {
+    background: #0a0a0a;
+    border: none;
+    height: 5vh;
+    font-family: 'Mansalva', cursive;
+    font-size: .9em;
+}
+
+input, select, textarea {
+    color: #F5BA0F;
+}
+
+.create-player {
+    margin-top: 4vh;
+    height: 7vh;
+    width: 20vh;
+    font-size: 1.4em;
+    font-weight: 650;
+    background: #F5BA0F;
+    border: none;
+    text-decoration-color: #0a0a0a;
+    font-family: 'Mansalva', cursive;
+}
+
+::placeholder {
+    color: #F5BA0F;
+    position: relative;
+    left: 2vw
 }

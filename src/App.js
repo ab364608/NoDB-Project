@@ -22,11 +22,13 @@ export default class App extends Component {
       <div>
         <Header />
         <nav className="player-button">
-          <button onClick={() => this.setState({currentPage: "create"})}>Create Player</button>
+          <button className="create" onClick={() => this.setState({currentPage: "create"})}>Build Team</button>
           {/* <button onClick={() => this.setState({currentPage: "BUT"})} >My BUT</button> */}
         </nav>
-        {/* {this.state.currentPage === "create" ? <CreatePlayer /> : this.state.currentPage === "BUT" ? <ButTeam /> : null} */}
-        {this.state.currentPage === "create" ? <CreatePlayer /> : null}
+          <div>
+            {/* {this.state.currentPage === "create" ? <CreatePlayer /> : this.state.currentPage === "BUT" ? <ButTeam /> : null} */}
+            {this.state.currentPage === "create" ? <CreatePlayer /> : null}
+          </div>
         <Footer />
       </div>
     )

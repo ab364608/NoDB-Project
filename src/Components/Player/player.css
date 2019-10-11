@@ -1,0 +1,103 @@
+body,html{
+    background-color:#7d0001;
+    width: 100vw;
+}
+
+.player-info {
+    width: 100vw;
+    height: 30vh;
+    position: relative;
+    left: 4vw
+}
+
+.card-size {
+    height: 25vh;
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+    background: #E8D161; 
+    
+
+}
+
+.name-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+}
+
+.name-rating {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.5em;
+    text-decoration-color: #0a0a0a;
+    font-family: 'Mansalva', cursive;
+    font-weight: 600
+}
+
+.cntry-team {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly
+}
+
+.delete {
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: 10vw;
+}
+
+.edit-name {
+    background: #0a0a0a;
+    border: none;
+    height: 3vh;
+    font-family: 'Mansalva', cursive;
+    font-size: .8em;
+}
+
+.edit-rating {
+    background: #0a0a0a;
+    border: none;
+    height: 3vh;
+    font-family: 'Mansalva', cursive;
+    font-size: .8em;
+}
+
+::placeholder {
+    color: #F5BA0F;
+    position: relative;
+    left: 1vw;
+}
+
+.edit button {
+    background: #0a0a0a;
+    border: none;
+    color: #F5BA0F;
+    font-family: 'Mansalva', cursive;
+}
+
+.name-button {
+    width: 15vw;
+    display: flex;
+    justify-content: space-evenly
+}
+
+.edit-button {
+    width: 15vw;
+    display: flex;
+    justify-content: space-evenly
+}
+
+
+
+

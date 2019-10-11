@@ -98,14 +98,18 @@ export default class CreatePlayer extends Component {
         return(
             <div>
                 <form className="input-fields">
-                    <input placeholder="Choose a Player Name" onChange={this.handlePlayerName} />
-                    <input placeholder="Rating between 50-99" onChange={this.handleRating} />
-                    <input placeholder="Country url: futhead.com" onChange={this.handleCountry} />
-                    <input placeholder="Team url: futhead.com" onChange={this.handleTeam} />
-                    <input placeholder="Player url: futhead.com" onChange={this.handlePlayerImg} />
-                    <button onClick={this.handleCreatePlayer} >Create Player</button>
+                    <div className="input">
+                        <input placeholder="Choose a Player Name" onChange={this.handlePlayerName} />
+                        <input placeholder="Rating between 50-99" onChange={this.handleRating} />
+                        <input placeholder="Country url: futhead.com" onChange={this.handleCountry} />
+                        <input placeholder="Team url: futhead.com" onChange={this.handleTeam} />
+                        <input placeholder="Player url: futhead.com" onChange={this.handlePlayerImg} />
+                    </div>
+                    <button className="create-player" onClick={this.handleCreatePlayer} >Create Player</button>
                 </form>
-                {createdPlayers}
+                <section className="overflow">
+                    {createdPlayers}
+                </section>
             </div>
         )
     }

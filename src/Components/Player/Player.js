@@ -69,19 +69,29 @@ export default class Player extends Component {
 
         return(
             <main className="player-info">
-                <h1>{playerName}</h1>
-                <img src={playerImg} alt="player img" />
-                <img src={playerTeam} alt="player team" height="40px" width="40px"/>
-                <img src={countryImg} alt="country img" height="30px" width="40px"/>
-                <h2>Player Rating: {playerRating}</h2>
-                <button onClick={this.deletePlayer} >X</button>
-                <div>
-                    <input placeholder="Edit Name" onChange={this.editName} />
-                    <button onClick={this.editPlayerName} >Change Name</button>
-                </div>
-                <div>
-                    <input placeholder="Edit Rating" onChange={this.editRating} ></input>
-                    <button onClick={this.editPlayerRating} >Change Rating</button>
+                <div className="card-size">
+                    <section className="name-img">
+                        <img src={playerImg} alt="player img" />
+                        <div className="name-rating">
+                            <h1>{playerName}</h1>
+                            <h2>{playerRating}</h2>
+                        </div>
+                    </section>
+                    <section className="cntry-team">
+                        <img src={countryImg} alt="country img" height="30px" width="40px"/>
+                        <img src={playerTeam} alt="player team" height="40px" width="40px"/>
+                    </section>
+                    <section className="edit">
+                        <div className="name-button">
+                            <input className="edit-name" placeholder="Edit Player Name" onChange={this.editName} />
+                            <button onClick={this.editPlayerName} >Change Name</button>
+                        </div>
+                        <div className="edit-button">
+                            <input className="edit-rating" placeholder="Edit Player Rating" onChange={this.editRating} ></input>
+                            <button onClick={this.editPlayerRating} >Change Rating</button>
+                        </div>
+                        <button className="delete" onClick={this.deletePlayer} >Remove Player</button>
+                    </section>
                 </div>
                 {/* <button onClick={this.handleButTeam} >Add to MY BUT</button>
                 <ButTeam favoritePlayers={this.favoritePlayers} /> */}
