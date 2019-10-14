@@ -5,10 +5,11 @@ let id = 1;
 
 function createPlayer(req, res) {
     //playerName, rating, countryImg, playerImg
-    const {playerName, playerRating, countryImg, playerTeam, playerImg} = req.body;
+    const {playerName, playerRating, playerPosition, countryImg, playerTeam, playerImg} = req.body;
     players.push({
         playerName,
         playerRating,
+        playerPosition,
         countryImg,
         playerTeam,
         playerImg,
@@ -40,7 +41,7 @@ function deletePlayer(req, res) {
 // -------------------PUT------------------
 
 function changePlayer(req, res) {
-    let {playerName, playerRating} = req.body;
+    let {playerName, playerRating, playerPosition} = req.body;
     let index = players.findIndex(player => 
         player.id == req.params.id)
     
@@ -51,8 +52,12 @@ function changePlayer(req, res) {
         players[index].playerName = playerName;
     }
 
-    if(playerRating !== undefined ) {
+    if(playerRating !== undefined) {
         players[index].playerRating = playerRating;
+    }
+
+    if(playerPosition !== undefined) {
+        players[index].playerPosition = playerPosition;
     }
     res.status(200).json(players)
 }

@@ -12,6 +12,7 @@ export default class CreatePlayer extends Component {
         this.state = {
             playerName: "",
             playerRating: "",
+            playerPosition: "",
             countryImg: "",
             playerTeam: "",
             playerImg: "",
@@ -29,6 +30,10 @@ export default class CreatePlayer extends Component {
         this.setState({playerRating: e.target.value});
     }
 
+    handlePosition = e => {
+        this.setState({playerPosition: e.target.value});
+    }
+
     handleCountry = e => {
         this.setState({countryImg: e.target.value});
     }
@@ -42,11 +47,12 @@ export default class CreatePlayer extends Component {
     }
 
     handleCreatePlayer = e => {
-        const {playerName, playerRating, countryImg, playerTeam, playerImg} = this.state;
+        const {playerName, playerRating, playerPosition, countryImg, playerTeam, playerImg} = this.state;
         e.preventDefault();
         axios.post("/api/ultiteam", {
             playerName,
             playerRating,
+            playerPosition,
             countryImg,
             playerTeam,
             playerImg
@@ -79,20 +85,12 @@ export default class CreatePlayer extends Component {
         this.setState({allPlayers: arr})
     }
     
-    // ----------------------Edit----------------------
 
-    // newPlayerName = str => {
-    //     this.setState({playerName: str})
-    // }
-
-    // newPlayerRating = str => {
-    //     this.setState({playerName: str})
-    // }
 
     render() {
         let createdPlayers = this.state.allPlayers.map((element, index) => {
             return (
-                <Player element={element} key={index} newPlayerArr={this.newPlayerArr} newPlayerName={this.newPlayerName} newPlayerRating={this.newPlayerRating} />
+                <Player element={element} key={index} newPlayerArr={this.newPlayerArr} />
             )
         })
         return(
@@ -101,6 +99,7 @@ export default class CreatePlayer extends Component {
                     <div className="input">
                         <input placeholder="Choose a Player Name" onChange={this.handlePlayerName} />
                         <input placeholder="Rating between 50-99" onChange={this.handleRating} />
+                        <input placeholder="Choose the Player's Position" onChange={this.handlePosition} />
                         <input placeholder="Country url: futhead.com" onChange={this.handleCountry} />
                         <input placeholder="Team url: futhead.com" onChange={this.handleTeam} />
                         <input placeholder="Player url: futhead.com" onChange={this.handlePlayerImg} />

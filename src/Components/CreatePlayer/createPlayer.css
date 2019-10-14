@@ -40,10 +40,17 @@ input, select, textarea {
     border: none;
     text-decoration-color: #0a0a0a;
     font-family: 'Mansalva', cursive;
+    transition: .5s
 }
 
 ::placeholder {
     color: #F5BA0F;
     position: relative;
     left: 2vw
+}
+
+.create-player:hover {
+    cursor: pointer;
+    color: #7d0001;
+    background-color: #0a0a0a;
 }

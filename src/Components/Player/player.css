@@ -4,10 +4,10 @@ body,html{
 }
 
 .player-info {
-    width: 100vw;
+    width: 40vw;
     height: 30vh;
     position: relative;
-    left: 4vw
+    left: 4vw;
 }
 
 .card-size {
@@ -16,8 +16,6 @@ body,html{
     display: flex;
     justify-content: space-between;
     background: #E8D161; 
-    
-
 }
 
 .name-img {
@@ -29,6 +27,13 @@ body,html{
 .name-rating {
     display: flex;
     justify-content: space-evenly;
+    font-size: 1.5em;
+    text-decoration-color: #0a0a0a;
+    font-family: 'Mansalva', cursive;
+    font-weight: 600
+}
+
+.position {
     font-size: 1.5em;
     text-decoration-color: #0a0a0a;
     font-family: 'Mansalva', cursive;
@@ -55,6 +60,8 @@ body,html{
     align-items: center;
     height: 3vh;
     width: 10vw;
+    font-size: 1.1em;
+    font-weight: 600
 }
 
 .edit-name {
@@ -73,6 +80,15 @@ body,html{
     font-size: .8em;
 }
 
+.edit-position {
+    background: #0a0a0a;
+    border: none;
+    height: 3vh;
+    width: 8vw;
+    font-family: 'Mansalva', cursive;
+    font-size: .8em;
+}
+
 ::placeholder {
     color: #F5BA0F;
     position: relative;
@@ -84,6 +100,7 @@ body,html{
     border: none;
     color: #F5BA0F;
     font-family: 'Mansalva', cursive;
+    transition: .5s;
 }
 
 .name-button {
@@ -96,6 +113,19 @@ body,html{
     width: 15vw;
     display: flex;
     justify-content: space-evenly
+}
+
+.position-edit {
+    width: 15vw;
+    display: flex;
+    justify-content: space-evenly
+}
+
+.player-info button:hover {
+    cursor: pointer;
+    color: #0a0a0a;
+    background: #7d0001
+    
 }
 
 

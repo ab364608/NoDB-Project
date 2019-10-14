@@ -14,20 +14,6 @@ export default class Player extends Component {
         }
     }
 
-    // handleButTeam = e => {
-    //     const {playerName, playerRating, countryImg, playerImg} = this.props.element;
-    //     axios.post("/api/ultiteam", {
-    //         playerName,
-    //         playerRating,
-    //         countryImg,
-    //         playerImg
-    //     }).then(response => {
-    //         this.setState({favoritePlayers: response.data})
-    //     }).catch(error => {
-    //         console.log(error);
-    //     })
-    // }
-
     // ------------------Delete----------------
 
     deletePlayer = () =>  {
@@ -51,7 +37,7 @@ export default class Player extends Component {
         this.setState({input: e.target.value});
     }
 
-    editPlayerRating = rating => {
+    editPlayerRating = () => {
         axios.put(`./api/ultiteam/${this.props.element.id}`, {
             playerRating: this.state.input
         }).then(response => {
@@ -63,8 +49,20 @@ export default class Player extends Component {
         this.setState({input: e.target.value});
     }
 
+    editPlayerPosition = () => {
+        axios.put(`/api/ultiteam/${this.props.element.id}`, {
+            playerPosition: this.state.input
+        }).then(response => {
+            this.props.newPlayerArr(response.data);
+        })
+    }
+
+    editPosition = e => {
+        this.setState({input: e.target.value});
+    }
+
     render() {
-        const {playerName, playerRating, countryImg, playerTeam, playerImg} = this.props.element;
+        const {playerName, playerRating, playerPosition, countryImg, playerTeam, playerImg} = this.props.element;
 
 
         return(
@@ -78,6 +76,7 @@ export default class Player extends Component {
                         </div>
                     </section>
                     <section className="cntry-team">
+                        <h1 className="position">{playerPosition}</h1>
                         <img src={countryImg} alt="country img" height="30px" width="40px"/>
                         <img src={playerTeam} alt="player team" height="40px" width="40px"/>
                     </section>
@@ -90,12 +89,13 @@ export default class Player extends Component {
                             <input className="edit-rating" placeholder="Edit Player Rating" onChange={this.editRating} ></input>
                             <button onClick={this.editPlayerRating} >Change Rating</button>
                         </div>
+                        <div className="position-edit">
+                            <input className="edit-position" placeholder="Change Position" onChange={this.editPosition} />
+                            <button onClick={this.editPlayerPosition}>Change Position</button>
+                        </div>
                         <button className="delete" onClick={this.deletePlayer} >Remove Player</button>
                     </section>
                 </div>
-                {/* <button onClick={this.handleButTeam} >Add to MY BUT</button>
-                <ButTeam favoritePlayers={this.favoritePlayers} /> */}
-                {/* <ButTeam  playerName={playerName} playerRating={playerName} countryImg={countryImg} playerImg={playerImg} /> */}
             </main>
         )
     }
